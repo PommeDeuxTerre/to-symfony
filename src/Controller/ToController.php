@@ -4,16 +4,21 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\Routing\Attribute\Route;
 
 class ToController extends AbstractController
 {
-    #[Route('/to', name: 'app_to')]
-    public function index(): JsonResponse
-    {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ToController.php',
-        ]);
-    }
+  //#[Route('/', name: 'app_to')]
+  public function index(): Response
+  {
+    return new Response(content: "<h1>May you be touched by His Noodely Appendage</h1> <p><a href='./'>home</a> | <a href='./json'>pomme</a></p>");
+  }
+
+  public function pommeJson(): JsonResponse
+  {
+    return $this->json([
+      "message" => "pomme"
+    ]);
+  }
 }
